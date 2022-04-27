@@ -4,13 +4,22 @@ import 'package:moika/common/components/local_icon_button.dart';
 import 'package:moika/common/constants/app_colors.dart';
 
 class BottomElements extends StatelessWidget {
-  const BottomElements({Key? key}) : super(key: key);
+  const BottomElements({Key? key, required this.onListButtonClicked})
+      : super(key: key);
+
+  final Function onListButtonClicked;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: const [Buttons(), SizedBox(height: 20), MainFunctions()]);
+    return Column(mainAxisSize: MainAxisSize.min, children: [
+      Buttons(
+        onListButtonClicked: () {
+          onListButtonClicked();
+        },
+      ),
+      const SizedBox(height: 20),
+      const MainFunctions()
+    ]);
   }
 }
 
@@ -93,7 +102,10 @@ class FunctionButton extends StatelessWidget {
 }
 
 class Buttons extends StatelessWidget {
-  const Buttons({Key? key}) : super(key: key);
+  const Buttons({Key? key, required this.onListButtonClicked})
+      : super(key: key);
+
+  final Function onListButtonClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +115,9 @@ class Buttons extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const FloatingListButton(),
+          FloatingListButton(onListButtonClicked: () {
+            onListButtonClicked();
+          }),
           LocalIconButton(icon: FontAwesomeIcons.locationArrow, onClick: () {})
         ],
       ),
@@ -112,7 +126,10 @@ class Buttons extends StatelessWidget {
 }
 
 class FloatingListButton extends StatelessWidget {
-  const FloatingListButton({Key? key}) : super(key: key);
+  const FloatingListButton({Key? key, required this.onListButtonClicked})
+      : super(key: key);
+
+  final Function onListButtonClicked;
 
   @override
   Widget build(BuildContext context) {
@@ -136,6 +153,8 @@ class FloatingListButton extends StatelessWidget {
             )
           ],
         ),
-        onPressed: () {});
+        onPressed: () {
+          onListButtonClicked();
+        });
   }
 }

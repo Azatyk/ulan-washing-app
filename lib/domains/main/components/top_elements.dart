@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:moika/common/components/tag_button.dart';
 import 'package:moika/common/constants/app_colors.dart';
+import '../../../common/components/local_icon_button.dart';
 
 class TopElements extends StatelessWidget {
   const TopElements({Key? key}) : super(key: key);
@@ -73,38 +74,10 @@ class Buttons extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(icon: FontAwesomeIcons.user, onClick: () {}),
-          IconButton(icon: FontAwesomeIcons.bookmark, onClick: () {}),
+          LocalIconButton(icon: FontAwesomeIcons.user, onClick: () {}),
+          LocalIconButton(icon: FontAwesomeIcons.bookmark, onClick: () {}),
         ],
       ),
-    );
-  }
-}
-
-class IconButton extends StatelessWidget {
-  const IconButton({Key? key, required this.icon, required this.onClick})
-      : super(key: key);
-
-  final IconData icon;
-  final Function onClick;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      width: 50,
-      height: 50,
-      child: CupertinoButton(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(40),
-          padding: const EdgeInsets.all(0),
-          child: FaIcon(
-            icon,
-            size: 24,
-            color: AppColors.darkGrey,
-          ),
-          onPressed: () {
-            onClick();
-          }),
     );
   }
 }

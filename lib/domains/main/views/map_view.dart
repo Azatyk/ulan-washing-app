@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moika/common/constants/app_colors.dart';
+import 'package:moika/domains/main/components/bottom_elements.dart';
 import 'package:moika/domains/main/components/top_elements.dart';
 
 class MapView extends StatefulWidget {
@@ -16,11 +16,13 @@ class _MapViewState extends State<MapView> {
       body: SafeArea(
         child: Stack(
           alignment: AlignmentDirectional.center,
-          children: [
-            Container(
-              color: AppColors.lightGrey,
-            ),
-            const Align(alignment: Alignment.topCenter, child: TopElements())
+          children: const [
+            Image(
+                width: double.infinity,
+                fit: BoxFit.cover,
+                image: AssetImage("assets/images/map-pattern.png")),
+            Align(alignment: Alignment.topCenter, child: TopElements()),
+            Align(alignment: Alignment.bottomCenter, child: BottomElements())
           ],
         ),
       ),

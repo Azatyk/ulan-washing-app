@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  mongodb:
+    image: mongo
+    container_name: 'mongodb-moika'
+    restart: always
+    environment:
+      MONGO_INITDB_DATABASE: 'moika'
+      MONGO_INITDB_ROOT_USERNAME: 'admin'
+      MONGO_INITDB_ROOT_PASSWORD: '4c1ba9a0-1add-4837-bfae-7fe489f8f37c'
+    ports:
+      - 27018:27017
+    volumes:
+      - C:\mongo:/data/db

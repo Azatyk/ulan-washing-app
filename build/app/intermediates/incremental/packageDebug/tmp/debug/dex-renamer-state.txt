@@ -1,0 +1,4 @@
+#Wed Apr 27 19:07:10 ALMT 2022
+base.0=/Users/azatuk/Desktop/programming/ulan-moika-app/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+renamed.0=classes.dex
+path.0=classes.dex
